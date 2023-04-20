@@ -10,15 +10,17 @@ const App = () => {
   const [timer, setTimer] = useState(null);
 
   const start = () => {
+    if (timer) return;
     setTimer(
       setInterval(() => {
-        setTime((prevValue) => prevValue + 1);
-      }, 1)
+        setTime((prevValue) => prevValue + 50);
+      }, 50)
     );
   };
 
   const stop = () => {
     clearInterval(timer);
+    setTimer(null);
   };
 
   const reset = () => {
